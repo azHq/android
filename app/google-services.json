@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "251681645425",
+    "firebase_url": "https://shologutionlinegaming.firebaseio.com",
+    "project_id": "shologutionlinegaming",
+    "storage_bucket": "shologutionlinegaming.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:251681645425:android:facbaa7abbc97955",
+        "android_client_info": {
+          "package_name": "com.example.asus.shologutionlinegaming"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "251681645425-2qergr2k3k1gfvha3cppilnmjg68ntuc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.asus.shologutionlinegaming",
+            "certificate_hash": "35ceadf1433ed01f8937f107185b807e77ccea67"
+          }
+        },
+        {
+          "client_id": "251681645425-sf9m6aqis0gcn7npjoem1fnglg96310v.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "251681645425-sf9m6aqis0gcn7npjoem1fnglg96310v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkCbtgp2AVsmWRsH-dpuk5eqFZ3Fg1Xxs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "251681645425-sf9m6aqis0gcn7npjoem1fnglg96310v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
