@@ -12,6 +12,7 @@ public class OnlineGameActivity extends AppCompatActivity {
     public String playerName=" ";
     public String loginUID=" ";
     public String requestType=" ";
+    public String idPair=" ";
 
 
 
@@ -19,6 +20,7 @@ public class OnlineGameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        idPair=getIntent().getExtras().get("idPair").toString();
         playerName=getIntent().getExtras().get("user_name").toString();
         loginUID=getIntent().getExtras().get("login_uid").toString();
         otherPlayer=getIntent().getExtras().get("other_player").toString();
@@ -27,7 +29,7 @@ public class OnlineGameActivity extends AppCompatActivity {
 
 
 
-        touch = new OnlineGameActivity2(this,playerName,loginUID,otherPlayer,requestType,playerSession);
+        touch = new OnlineGameActivity2(this,playerName,loginUID,otherPlayer,requestType,playerSession,idPair);
         //touch.setBackground(Color);
         setContentView(touch);
 

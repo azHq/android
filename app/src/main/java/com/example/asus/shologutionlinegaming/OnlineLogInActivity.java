@@ -66,6 +66,9 @@ public class OnlineLogInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_online_log_in);
 
+       /* Intent t=new Intent(OnlineLogInActivity.this,Fragments.class);
+        startActivity(t);*/
+
 
 
         userId=(TextView)findViewById(R.id.userId);
@@ -338,7 +341,7 @@ public class OnlineLogInActivity extends AppCompatActivity {
         builder.setView(v);
 
         final EditText etEmail=(EditText) v.findViewById(R.id.editText);
-        final EditText epassword=(EditText) v.findViewById(R.id.editText2);
+       // final EditText epassword=(EditText) v.findViewById(R.id.editText2);
 
         builder.setTitle("Registration");
         builder.setMessage("Enter your email and password.");
@@ -346,7 +349,7 @@ public class OnlineLogInActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 
-                registration(etEmail.getText().toString(),epassword.getText().toString());
+                //registration(etEmail.getText().toString(),epassword.getText().toString());
             }
         });
 
@@ -372,19 +375,19 @@ public class OnlineLogInActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
+
                             Log.d("new user", "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
 
                         } else {
-                            // If sign in fails, display a message to the user.
+
                             Log.w("new user", "createUserWithEmail:failure", task.getException());
                             Toast.makeText(getApplicationContext(), "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
 
                         }
 
-                        // ...
+
                     }
                 });
 
@@ -394,9 +397,10 @@ public class OnlineLogInActivity extends AppCompatActivity {
 
 
 
-    @Override
+    /*@Override
     public void onStart() {
         super.onStart();
+
         // Check if user is signed in (non-null) and update UI accordingly.
         mAuth.addAuthStateListener(authStateListener);
     }
@@ -407,7 +411,7 @@ public class OnlineLogInActivity extends AppCompatActivity {
         super.onStop();
         // Check if user is signed in (non-null) and update UI accordingly.
        if(authStateListener!=null) mAuth.removeAuthStateListener(authStateListener);
-    }
+    }*/
 
 
     public void registeredUsers(String email,String password){

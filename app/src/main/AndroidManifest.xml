@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.asus.shologutionlinegaming">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/azaz7"
@@ -9,29 +15,86 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <service android:name=".MyFirebaseMessaging">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SholoGuti" />
-        <activity android:name=".ShowInfo" />
-        <activity android:name=".Help" />
-        <activity android:name=".ViewListContent3" />
+        <activity
+            android:name=".SholoGuti"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ShowInfo"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Help"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewListContent3"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MediumLevel1"
             android:screenOrientation="portrait" />
         <activity
             android:name=".TwoPlayerMode"
             android:screenOrientation="portrait" />
-        <activity android:name=".Level" />
-        <activity android:name=".HardLevel1" />
-        <activity android:name=".EasyLevel1" />
-        <activity android:name=".OnlineSholoGuti" />
-        <activity android:name=".OnlineLogInActivity" />
-        <activity android:name=".OnlineGameActivity"></activity>
+        <activity
+            android:name=".Level"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HardLevel1"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".EasyLevel1"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".OnlineSholoGuti"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".OnlineLogInActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".OnlineGameActivity"
+            android:screenOrientation="portrait" />
+
+        <receiver android:name=".CheckNetwork">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".Different_fragment"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Fragments"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SignUpForm"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UsersProfile"
+            android:screenOrientation="portrait" />
+        <activity android:name=".AccountSettings" />
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
+        <activity android:name=".FriendRequest"></activity>
     </application>
 
 </manifest>

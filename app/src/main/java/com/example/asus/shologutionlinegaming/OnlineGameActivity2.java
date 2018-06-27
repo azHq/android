@@ -121,13 +121,14 @@ public class OnlineGameActivity2 extends SurfaceView implements View.OnTouchList
     public String userName;
     public String loginUID;
     public String requestType;
+    public String idPair;
 
 
     FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
     DatabaseReference databaseReference=firebaseDatabase.getReference();
 
 
-    public OnlineGameActivity2(Context context,String UserName,String LoginUID,String OtherPlayer,String RequestType,String PlayerSession){
+    public OnlineGameActivity2(Context context,String UserName,String LoginUID,String OtherPlayer,String RequestType,String PlayerSession,String idPair){
 
         super(context);
 
@@ -137,6 +138,7 @@ public class OnlineGameActivity2 extends SurfaceView implements View.OnTouchList
         requestType=RequestType;
         playerSession=PlayerSession;
         otherPlayer=OtherPlayer;
+        this.idPair=idPair;
 
 
 
@@ -146,7 +148,7 @@ public class OnlineGameActivity2 extends SurfaceView implements View.OnTouchList
             team1Move=true;
             team2Move=false;
 
-            databaseReference.child("playing").child(playerSession).child("turn").setValue(otherPlayer);
+            databaseReference.child("play").child(idPair).child(playerSession).child("turn").setValue(otherPlayer);
 
         }
         else{
@@ -154,7 +156,7 @@ public class OnlineGameActivity2 extends SurfaceView implements View.OnTouchList
             team1Move=false;
             team2Move=true;
 
-            databaseReference.child("playing").child(playerSession).child("turn").setValue(otherPlayer);
+            databaseReference.child("play").child(idPair).child(playerSession).child("turn").setValue(otherPlayer);
 
         }
 
@@ -682,7 +684,7 @@ public class OnlineGameActivity2 extends SurfaceView implements View.OnTouchList
 
 
 
-        databaseReference.child("playing").child(playerSession).child("turn").addValueEventListener(new ValueEventListener() {
+        databaseReference.child("play").child(idPair).child(playerSession).child("turn").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -721,7 +723,7 @@ public class OnlineGameActivity2 extends SurfaceView implements View.OnTouchList
         });
 
 
-        databaseReference.child("playing").child(playerSession).child("game").addValueEventListener(new ValueEventListener() {
+        databaseReference.child("play").child(idPair).child(playerSession).child("game").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -1056,9 +1058,9 @@ public class OnlineGameActivity2 extends SurfaceView implements View.OnTouchList
 
                         mouse = false;
 
-                        databaseReference.child("playing").child(playerSession).child("game").removeValue();
-                        databaseReference.child("playing").child(playerSession).child("game").child(mouseTemp+":"+path[mouseTemp][i]).setValue(userName);
-                        databaseReference.child("playing").child(playerSession).child("turn").setValue(otherPlayer);
+                        databaseReference.child("play").child(idPair).child(playerSession).child("game").removeValue();
+                        databaseReference.child("play").child(idPair).child(playerSession).child("game").child(mouseTemp+":"+path[mouseTemp][i]).setValue(userName);
+                        databaseReference.child("play").child(idPair).child(playerSession).child("turn").setValue(otherPlayer);
 
 
 
@@ -1152,9 +1154,9 @@ public class OnlineGameActivity2 extends SurfaceView implements View.OnTouchList
 
                             int tmp=path[next][i];
 
-                            databaseReference.child("playing").child(playerSession).child("game").removeValue();
-                            databaseReference.child("playing").child(playerSession).child("game").child(mouseTemp+":"+next+":"+path[next][i]).setValue(userName);
-                            databaseReference.child("playing").child(playerSession).child("turn").setValue(otherPlayer);
+                            databaseReference.child("play").child(idPair).child(playerSession).child("game").removeValue();
+                            databaseReference.child("play").child(idPair).child(playerSession).child("game").child(mouseTemp+":"+next+":"+path[next][i]).setValue(userName);
+                            databaseReference.child("play").child(idPair).child(playerSession).child("turn").setValue(otherPlayer);
 
 
 
@@ -1168,7 +1170,7 @@ public class OnlineGameActivity2 extends SurfaceView implements View.OnTouchList
                                             team1Move=true;
                                             team2Move=true;
 
-                                            databaseReference.child("playing").child(playerSession).child("turn").setValue(userName);
+                                            databaseReference.child("play").child(idPair).child(playerSession).child("turn").setValue(userName);
 
                                         }
                                     }
